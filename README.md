@@ -7,6 +7,7 @@ A collection of Claude Code plugins and skills.
 | Plugin | Description |
 |--------|-------------|
 | **solve** | Spawn a full parallel dev team to solve any problem. Acts as team lead — researches, plans, then deploys parallel agent team members. |
+| **add-dag** | Build a new Airflow DAG from a brief idea, .py file, or .md spec. Launches 6 parallel research agents, then implements the DAG with tests. |
 
 ## Installation
 

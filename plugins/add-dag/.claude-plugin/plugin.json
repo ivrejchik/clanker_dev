@@ -1,0 +1,7 @@
+{
+  "name": "add-dag",
+  "description": "Build a new Airflow DAG from a brief idea, .py file, or .md spec. Launches parallel research agents to analyze the codebase, then implements the DAG following existing patterns on a feature branch with tests.",
+  "author": {
+    "name": "ivrejchik"
+  }
+}
