@@ -1,0 +1,32 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/ivrejchik/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"/Users/ivrejchik/.claude/hooks/gsd-statusline.js\""
+  },
+  "enabledPlugins": {
+    "hugging-face-cli@huggingface-skills": true,
+    "hugging-face-datasets@huggingface-skills": true,
+    "hugging-face-evaluation@huggingface-skills": true,
+    "hugging-face-model-trainer@huggingface-skills": true,
+    "plugin-dev@claude-code-plugins": true,
+    "good-boss_doesnot_work@good-boss-marketplace": true,
+    "frontend-design@claude-code-plugins": true
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high"
+}

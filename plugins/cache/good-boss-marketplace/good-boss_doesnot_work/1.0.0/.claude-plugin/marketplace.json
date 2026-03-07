@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "good-boss-marketplace",
+  "version": "1.0.0",
+  "description": "Local marketplace for the good-boss_doesnot_work plugin",
+  "owner": {
+    "name": "ivrejchik"
+  },
+  "plugins": [
+    {
+      "name": "good-boss_doesnot_work",
+      "description": "A lazy boss that never works — always delegates to a team of Opus 4.6 specialists spawned dynamically for every task",
+      "version": "1.0.0",
+      "source": "..",
+      "category": "productivity"
+    }
+  ]
+}

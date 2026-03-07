@@ -1,41 +1,42 @@
-# Claude Skills by ivrejchik
+# Claude Code Skills & Plugins
 
-A collection of Claude Code plugins and skills.
+Backup of Claude Code skills, agents, hooks, and plugin configurations.
 
-## Available Plugins
-
-| Plugin | Description |
-|--------|-------------|
-| **solve** | Spawn a full parallel dev team to solve any problem. Acts as team lead — researches, plans, then deploys parallel agent team members. |
-| **add-dag** | Build a new Airflow DAG from a brief idea, .py file, or .md spec. Launches 6 parallel research agents, then implements the DAG with tests. |
-
-## Installation
-
-Install plugins from this marketplace:
+## Directory Structure
 
 ```
-/plugin install solve@claude-skills-ivrejchik
-```
-
-Or browse available plugins:
-
-```
-/plugin > Discover
-```
-
-## Plugin Structure
-
-```
+agents/           GSD agent definitions (.md files)
+hooks/            GSD hook scripts (.js files)
+config/           Claude Code configuration
+  settings.json           Main settings (plugins, hooks, statusLine, env vars)
+  known_marketplaces.json Registered marketplace sources
+  installed_plugins.json  Installed plugin metadata
 plugins/
-└── plugin-name/
-    ├── .claude-plugin/
-    │   └── plugin.json
-    ├── skills/
-    │   └── skill-name/
-    │       └── SKILL.md
-    └── README.md
+  good-boss-marketplace/  Local marketplace plugin (good-boss_doesnot_work + add-dag)
+  cache/                  Cached marketplace plugins
+    huggingface-skills/     HuggingFace skills (CLI, datasets, evaluation, model-trainer)
+    claude-code-plugins/    Anthropic plugins (plugin-dev, frontend-design)
+    good-boss-marketplace/  Cached copy of good-boss plugin
 ```
 
-## Contributing
+## Agents (GSD System)
 
-Feel free to open issues or submit PRs with new skills or improvements to existing ones.
+11 specialized agents for the GSD (Get Stuff Done) workflow:
+- codebase-mapper, debugger, executor, integration-checker
+- phase-researcher, plan-checker, planner, project-researcher
+- research-synthesizer, roadmapper, verifier
+
+## Hooks
+
+- `gsd-check-update.js` -- Runs on SessionStart to check for GSD updates
+- `gsd-statusline.js` -- Custom status line display
+
+## Installed Plugins
+
+- **hugging-face-cli** (huggingface-skills)
+- **hugging-face-datasets** (huggingface-skills)
+- **hugging-face-evaluation** (huggingface-skills)
+- **hugging-face-model-trainer** (huggingface-skills)
+- **plugin-dev** (claude-code-plugins)
+- **frontend-design** (claude-code-plugins)
+- **good-boss_doesnot_work** (good-boss-marketplace)

@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "plugins": {
+    "hugging-face-cli@huggingface-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/huggingface-skills/hugging-face-cli/3f4f55d6264b",
+        "version": "3f4f55d6264b",
+        "installedAt": "2026-02-10T18:51:58.438Z",
+        "lastUpdated": "2026-02-10T18:51:58.438Z",
+        "gitCommitSha": "3f4f55d6264b7baddec94031eeda70780d7e9189"
+      }
+    ],
+    "hugging-face-datasets@huggingface-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/huggingface-skills/hugging-face-datasets/3f4f55d6264b",
+        "version": "3f4f55d6264b",
+        "installedAt": "2026-02-10T18:52:03.915Z",
+        "lastUpdated": "2026-02-10T18:52:03.915Z",
+        "gitCommitSha": "3f4f55d6264b7baddec94031eeda70780d7e9189"
+      }
+    ],
+    "hugging-face-evaluation@huggingface-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/huggingface-skills/hugging-face-evaluation/3f4f55d6264b",
+        "version": "3f4f55d6264b",
+        "installedAt": "2026-02-10T18:52:16.977Z",
+        "lastUpdated": "2026-02-10T18:52:16.977Z",
+        "gitCommitSha": "3f4f55d6264b7baddec94031eeda70780d7e9189"
+      }
+    ],
+    "hugging-face-model-trainer@huggingface-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/huggingface-skills/hugging-face-model-trainer/3f4f55d6264b",
+        "version": "3f4f55d6264b",
+        "installedAt": "2026-02-10T18:53:28.353Z",
+        "lastUpdated": "2026-02-10T18:53:28.353Z",
+        "gitCommitSha": "3f4f55d6264b7baddec94031eeda70780d7e9189"
+      }
+    ],
+    "plugin-dev@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/claude-code-plugins/plugin-dev/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-02-17T16:13:52.277Z",
+        "lastUpdated": "2026-02-17T16:13:52.277Z",
+        "gitCommitSha": "32c7ff2b6e398090e8c4f3ec7761be701a11c269"
+      }
+    ],
+    "good-boss_doesnot_work@good-boss-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/good-boss-marketplace/good-boss_doesnot_work/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-17T16:33:47.701Z",
+        "lastUpdated": "2026-02-17T16:33:47.701Z"
+      }
+    ],
+    "frontend-design@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/ivrejchik/.claude/plugins/cache/claude-code-plugins/frontend-design/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-20T17:57:51.458Z",
+        "lastUpdated": "2026-02-20T17:57:51.458Z",
+        "gitCommitSha": "65dfa9898e3696800a8a3880731e3ee878212799"
+      }
+    ]
+  }
+}
