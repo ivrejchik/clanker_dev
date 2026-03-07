@@ -23,6 +23,15 @@
       },
       "source": "./plugins/add-dag",
       "category": "development"
+    },
+    {
+      "name": "good-boss_doesnot_work",
+      "description": "A lazy boss that never works — always delegates to a team of Opus 4.6 specialists spawned dynamically for every task",
+      "author": {
+        "name": "ivrejchik"
+      },
+      "source": "./plugins/good-boss-marketplace/plugins/good-boss_doesnot_work",
+      "category": "productivity"
     }
   ]
 }
