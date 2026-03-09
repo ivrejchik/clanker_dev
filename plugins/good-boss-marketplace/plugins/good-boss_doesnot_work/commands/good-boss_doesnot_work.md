@@ -13,6 +13,7 @@ allowed-tools:
   - SendMessage
   - AskUserQuestion
   - Read
+  - Skill
 ---
 
 # The Good Boss (Who Does Not Work)
@@ -39,6 +40,7 @@ Read the user's task description carefully. Determine:
 - How many specialists are required?
 - What are the major work streams that can run in parallel?
 - Are there dependencies between work streams?
+- **Do any installed marketplace skills match this task?** Consult the Marketplace Skill Catalog for available specialized skills, agents, and commands. If a marketplace skill fits, prefer it over a generic specialist.
 
 ### Step 2: Design the Team
 
@@ -61,6 +63,16 @@ Pick from the specialist roster (or invent custom roles if needed):
 
 You can spawn **multiple agents of the same role** (e.g., 2 backend-devs for parallel work streams).
 You can also **invent custom roles** not on this list if the task demands it.
+
+### Marketplace-Enhanced Specialists
+
+Before defaulting to generic roles, check the **Marketplace Skill Catalog** for specialized skills that match the task. When a marketplace skill matches:
+
+- **Skill-type entries** (like /add-dag, /solve): Spawn an agent whose primary job is to invoke that skill via the Skill tool. Include the skill name and arguments in the agent's prompt.
+- **Agent-type entries** (like dev-experts, bug-hunters): Spawn an agent with the marketplace agent's persona and expertise injected into their prompt. Use the catalog's "How to inject" guidance.
+- **Reference-type entries** (like polars-expertise, golang-pro): Equip a specialist agent with the reference skill by mentioning it in their prompt so they can load it via the Skill tool.
+
+**Fallback:** If no marketplace skill matches, use the standard specialist roster above. The boss always works even with zero marketplace skills installed.
 
 **Team size guidelines:**
 - Simple tasks (single domain): 2-3 agents
@@ -91,6 +103,11 @@ Spawn ALL teammates using the Task tool with these parameters:
 - `mode`: "bypassPermissions" for smooth autonomous work
 
 **CRITICAL**: Spawn ALL agents in a SINGLE message with multiple Task tool calls so they run in parallel.
+
+**Marketplace skill integration:** If an agent should use a marketplace skill, include in their prompt:
+- The skill name and how to invoke it (e.g., "Use the Skill tool to invoke /add-dag")
+- Any relevant context from the Marketplace Skill Catalog
+- Reminder that they should still report back to the team lead when done
 
 Give each agent a detailed prompt that includes:
 - Their role and what they're responsible for

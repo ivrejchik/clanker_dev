@@ -49,21 +49,38 @@ Invent any specialist role the task demands. Examples:
 - **database-admin** for complex DB work
 - **api-designer** for API design tasks
 
+### Marketplace-Enhanced Roles
+
+When marketplace skills are installed, they extend the specialist roster with domain-specific expertise:
+
+- **Skill-backed specialists**: Agents that invoke a marketplace skill (e.g., an agent that uses /add-dag for Airflow work, or /arxiv-search for academic research). Spawn as general-purpose with Skill tool access.
+- **Persona-injected specialists**: Agents whose prompt includes expertise from a marketplace agent definition (e.g., a cpp-hunter persona for C++ debugging). The persona content comes from the Marketplace Skill Catalog.
+- **Reference-equipped specialists**: Standard specialists given access to a reference skill for domain knowledge (e.g., a data-engineer with polars-expertise).
+
+Always check the Marketplace Skill Catalog before finalizing team composition. Marketplace specialists are preferred over generic roles when a strong match exists.
+
 ## Team Composition Decision Matrix
 
 ### By Task Type
 
-| Task Type | Recommended Team |
-|-----------|-----------------|
-| Bug fix | researcher + backend-dev (or frontend-dev) + qa-tester |
-| New feature | architect + developer(s) + qa-tester |
-| Refactoring | researcher + developer(s) + qa-tester |
-| Investigation | researcher + web-searcher |
-| Full-stack feature | researcher + backend-dev + frontend-dev + qa-tester |
-| Data pipeline | data-engineer + devops-engineer |
-| ML project | researcher + data-scientist + ml-engineer |
-| Deployment | devops-engineer + security-engineer |
-| Performance issue | researcher + performance-engineer + developer |
+| Task Type | Recommended Team | Marketplace Enhancement |
+|-----------|-----------------|------------------------|
+| Bug fix | researcher + backend-dev (or frontend-dev) + qa-tester | — |
+| New feature | architect + developer(s) + qa-tester | — |
+| Refactoring | researcher + developer(s) + qa-tester | — |
+| Investigation | researcher + web-searcher | — |
+| Full-stack feature | researcher + backend-dev + frontend-dev + qa-tester | — |
+| Data pipeline | data-engineer + devops-engineer | — |
+| ML project | researcher + data-scientist + ml-engineer | — |
+| Deployment | devops-engineer + security-engineer | — |
+| Performance issue | researcher + performance-engineer + developer | — |
+| Bug fix (C++) | researcher + developer + qa-tester | Use bug-hunters/cpp-hunter persona |
+| Airflow DAG | dag-specialist | Delegate to /add-dag skill |
+| Go development | backend-dev + qa-tester | Equip dev with golang-pro skill |
+| Data pipeline (Polars) | data-engineer + qa-tester | Equip with polars-expertise |
+| Academic research | researcher + web-searcher | Add arxiv-search skill |
+| Complex multi-domain | architect + sub-team | Consider delegating to /solve |
+| Trading/Quant | researcher + quant-dev | Use alpha-squad personas |
 
 ### Scaling Rules
 
