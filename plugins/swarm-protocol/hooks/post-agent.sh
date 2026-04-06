@@ -16,14 +16,8 @@ if [[ "$agent_name" != swarm-* ]]; then
   exit 0
 fi
 
-# Namespace pipeline by project (cwd hash)
-cwd=$(echo "$input" | jq -r '.cwd // ""')
-if [ -n "$cwd" ]; then
-  project_hash=$(echo -n "$cwd" | md5 2>/dev/null || echo -n "$cwd" | md5sum 2>/dev/null | cut -d' ' -f1)
-else
-  project_hash="default"
-fi
-pipeline_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-pipeline/${project_hash}"
+# Pipeline state directory (flat — conductor manages cleanup)
+pipeline_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-pipeline"
 mkdir -p "$pipeline_dir"
 
 # Get agent output — Agent tool uses tool_response.content[].text, not tool_result
@@ -33,8 +27,8 @@ result=$(echo "$input" | jq -r '[.tool_response.content[]? | select(.type == "te
 existing=$(ls "$pipeline_dir"/*.json 2>/dev/null | wc -l | tr -d ' ')
 step=$((existing + 1))
 
-# Extract chosen role from output (looks for "ROLE: xxx" pattern)
-chosen_role=$(echo "$result" | grep -oiE 'ROLE:\s*[^\n]+' | head -1 | sed 's/ROLE:\s*//')
+# Extract chosen role from output (looks for "ROLE: xxx" on first matching line)
+chosen_role=$(echo "$result" | grep -m1 -oiE 'ROLE: .+' | sed 's/^ROLE: //i' | head -c 100)
 if [ -z "$chosen_role" ]; then
   chosen_role="unspecified"
 fi
