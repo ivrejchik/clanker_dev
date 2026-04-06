@@ -9,11 +9,6 @@
 
 input=$(cat)
 
-# Debug: dump raw input to see what PostToolUse actually receives for Agent
-debug_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-debug"
-mkdir -p "$debug_dir"
-echo "$input" > "$debug_dir/post_agent_$(date +%s).json"
-
 agent_name=$(echo "$input" | jq -r '.tool_input.name // ""')
 
 # Only activate for swarm pipeline agents
@@ -31,8 +26,8 @@ fi
 pipeline_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-pipeline/${project_hash}"
 mkdir -p "$pipeline_dir"
 
-# Get agent output
-result=$(echo "$input" | jq -r '.tool_result // ""')
+# Get agent output — Agent tool uses tool_response.content[].text, not tool_result
+result=$(echo "$input" | jq -r '[.tool_response.content[]? | select(.type == "text") | .text] | join("\n") // ""')
 
 # Determine step number
 existing=$(ls "$pipeline_dir"/*.json 2>/dev/null | wc -l | tr -d ' ')

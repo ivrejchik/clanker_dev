@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "swarm-protocol-marketplace",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Self-organizing sequential agent pipeline",
   "owner": {
     "name": "ivrejchik"
@@ -10,7 +10,7 @@
     {
       "name": "swarm-protocol",
       "description": "Self-organizing agent pipeline where agents choose their own roles. Sequential protocol with hook-enforced discipline. Based on Dochkina et al. (2026).",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "source": ".",
       "category": "productivity"
     }
