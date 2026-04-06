@@ -5,5 +5,5 @@
   "author": {
     "name": "ivrejchik"
   },
-  "hooks": "../hooks/hooks.json"
+  "hooks": "./hooks/hooks.json"
 }
