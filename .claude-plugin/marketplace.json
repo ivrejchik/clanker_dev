@@ -32,6 +32,15 @@
       },
       "source": "./plugins/good-boss-marketplace/plugins/good-boss_doesnot_work",
       "category": "productivity"
+    },
+    {
+      "name": "swarm-protocol",
+      "description": "Self-organizing sequential agent pipeline. Agents choose their own roles based on predecessors' artifacts. Hook-enforced protocol with 97-dev principles, scope discipline, and convergence detection.",
+      "author": {
+        "name": "ivrejchik"
+      },
+      "source": "./plugins/swarm-protocol",
+      "category": "productivity"
     }
   ]
 }
