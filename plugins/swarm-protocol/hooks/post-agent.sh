@@ -9,6 +9,11 @@
 
 input=$(cat)
 
+# Debug: dump raw input to see what PostToolUse actually receives for Agent
+debug_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-debug"
+mkdir -p "$debug_dir"
+echo "$input" > "$debug_dir/post_agent_$(date +%s).json"
+
 agent_name=$(echo "$input" | jq -r '.tool_input.name // ""')
 
 # Only activate for swarm pipeline agents

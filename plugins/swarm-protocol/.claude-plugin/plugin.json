@@ -1,6 +1,6 @@
 {
   "name": "swarm-protocol",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Self-organizing sequential agent pipeline inspired by Dochkina et al. (2026). Agents choose their own roles based on predecessors' artifacts.",
   "author": {
     "name": "ivrejchik"
