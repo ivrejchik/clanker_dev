@@ -66,13 +66,21 @@ present final results
 
 ### Step 0: Initialize Pipeline
 
+Each project gets its own pipeline state, namespaced by md5 hash of the working directory.
+This means you can run `/swarm` in multiple projects without them interfering.
+
 ```bash
-# Clear previous pipeline state
-rm -rf "${CLAUDE_PLUGIN_DATA}/swarm-pipeline" 2>/dev/null
-mkdir -p "${CLAUDE_PLUGIN_DATA}/swarm-pipeline"
+# Compute project hash from current working directory
+PROJECT_HASH=$(echo -n "$(pwd)" | md5)
+PIPELINE_DIR="${CLAUDE_PLUGIN_DATA}/swarm-pipeline/${PROJECT_HASH}"
+
+# Clear previous pipeline state for THIS project only
+rm -rf "${PIPELINE_DIR}" 2>/dev/null
+mkdir -p "${PIPELINE_DIR}"
 ```
 
-If `CLAUDE_PLUGIN_DATA` is not available, use `/tmp/swarm-pipeline`.
+If `CLAUDE_PLUGIN_DATA` is not available, use `/tmp/swarm-pipeline/${PROJECT_HASH}`.
+The hooks use the same hashing, so they will find the correct pipeline state automatically.
 
 ### Step 1: Understand the Mission
 

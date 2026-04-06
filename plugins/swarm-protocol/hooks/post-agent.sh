@@ -16,7 +16,14 @@ if [[ "$agent_name" != swarm-* ]]; then
   exit 0
 fi
 
-pipeline_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-pipeline"
+# Namespace pipeline by project (cwd hash)
+cwd=$(echo "$input" | jq -r '.cwd // ""')
+if [ -n "$cwd" ]; then
+  project_hash=$(echo -n "$cwd" | md5 2>/dev/null || echo -n "$cwd" | md5sum 2>/dev/null | cut -d' ' -f1)
+else
+  project_hash="default"
+fi
+pipeline_dir="${CLAUDE_PLUGIN_DATA:-/tmp}/swarm-pipeline/${project_hash}"
 mkdir -p "$pipeline_dir"
 
 # Get agent output
